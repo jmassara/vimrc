@@ -89,7 +89,7 @@ endif
 "      Mappings      "
 """"""""""""""""""""""
 "let mapleader=";"
-"
+
 " Get rid of search highlights
 noremap <silent><leader>/ :nohlsearch<cr>
 
@@ -122,5 +122,8 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 "      Extras       "
 """""""""""""""""""""
 " tab customization for specific files
-autocmd FileType json,yaml,ruby setl tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType html,json,ruby,yaml setl tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+" remove trailing whitespace on save for specific file types
+"autocmd BufWritePre * :%s/\s\+$//e
+autocmd FileType go,html,json,yaml,ruby autocmd BufWritePre <buffer> %s/\s\+$//e
